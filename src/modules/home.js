@@ -1,3 +1,6 @@
+import logo_bg from "../assets/logo-background.jpg"
+import sub_img from "../assets/home-subimg.jpg"
+
 export default function home() {
     let content = document.getElementById("content");
 
@@ -5,6 +8,8 @@ export default function home() {
 
     let logoContainer = document.createElement("div");
     logoContainer.id = "logo-container";
+    logoContainer.style.background = `url(${logo_bg}) var(--secondary-color) no-repeat`
+    logoContainer.style.backgroundSize = "cover"
     let logo = document.createElement("h1");
     logo.id = "logo";
     logo.textContent = "Mama Mía";
@@ -15,6 +20,11 @@ export default function home() {
 
     content.appendChild(logoContainer);
 
+    let descriptionContainer = document.createElement("div")
+    descriptionContainer.id = "description-container"
+    descriptionContainer.style.background = `url(${sub_img}) var(--secondary-color) no-repeat right bottom`
+    content.appendChild(descriptionContainer)
+
     let description1 = document.createElement("p");
     description1.classList.add("description");
     description1.innerHTML = `Servimos una inigualable experiencia culinaria con nuestra selección de pastas preparadas con ingredientes traidos desde Italia. <br><br>
@@ -22,10 +32,10 @@ export default function home() {
 
     let description2 = document.createElement("p");
     description2.classList.add("description");
-    description2.textContent = "Excelencia en pastas desde 1904";
+    description2.textContent = "Excelencia en pastas y panadería desde 1904";
 
-    content.appendChild(description1);
-    content.appendChild(description2);
+    descriptionContainer.appendChild(description1);
+    descriptionContainer.appendChild(description2);
 
     let locationContainer = document.createElement("div");
     locationContainer.id = "location-container";
@@ -42,10 +52,10 @@ export default function home() {
     locationContainer.appendChild(locationText);
     locationContainer.appendChild(location);
 
-    content.appendChild(locationContainer);
+    descriptionContainer.appendChild(locationContainer);
 
     let footer = document.createElement("footer");
-    footer.textContent = "Copyright © Alex super papu pro";
+    footer.textContent = "Copyright © Alejandrini";
 
-    content.appendChild(footer);
+    descriptionContainer.appendChild(footer);
 }
